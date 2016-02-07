@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="0.83170497in"
+   height="0.83170497in"
+   viewBox="0 0 74.853448 74.853448"
+   id="svg12784"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Box Chunk.svg"
+   inkscape:export-filename="F:\ProzProg\Hängebauchschwein-Simulator\image\chunk_box.png"
+   inkscape:export-xdpi="41.106686"
+   inkscape:export-ydpi="41.106686">
+  <defs
+     id="defs12786" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-39.940733"
+     inkscape:cy="49.7877"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="in" />
+  <metadata
+     id="metadata12789">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-83.160233,-331.44104)">
+    <g
+       id="g13409"
+       inkscape:export-filename="F:\ProzProg\Hängebauchschwein-Simulator\image\chunk_box.png"
+       inkscape:export-xdpi="72.140968"
+       inkscape:export-ydpi="72.140968">
+      <rect
+         ry="0.55461019"
+         y="333.19104"
+         x="84.910233"
+         height="71.353447"
+         width="71.353447"
+         id="rect13332"
+         style="opacity:1;fill:#ce926e;fill-opacity:1;stroke:#be7041;stroke-width:3.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+      <rect
+         ry="0.40377843"
+         y="342.89368"
+         x="94.612869"
+         height="51.948166"
+         width="51.948166"
+         id="rect13332-5"
+         style="opacity:1;fill:#ce926e;fill-opacity:1;stroke:#be7041;stroke-width:2.54814005;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+      <rect
+         ry="0.018516185"
+         y="351.73874"
+         x="94.21756"
+         height="2.3822024"
+         width="52.542591"
+         id="rect13332-5-8"
+         style="opacity:1;fill:#be7041;fill-opacity:1;stroke:none;stroke-width:1.95371711;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+      <rect
+         ry="0.018516185"
+         y="362.11502"
+         x="93.996559"
+         height="2.3822024"
+         width="52.542591"
+         id="rect13332-5-8-6"
+         style="opacity:1;fill:#be7041;fill-opacity:1;stroke:none;stroke-width:1.95371711;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+      <rect
+         ry="0.018516185"
+         y="372.49124"
+         x="93.63942"
+         height="2.3822024"
+         width="52.542591"
+         id="rect13332-5-8-6-4"
+         style="opacity:1;fill:#be7041;fill-opacity:1;stroke:none;stroke-width:1.95371711;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+      <rect
+         ry="0.018516185"
+         y="382.86752"
+         x="94.085846"
+         height="2.3822024"
+         width="52.542591"
+         id="rect13332-5-8-6-4-2"
+         style="opacity:1;fill:#be7041;fill-opacity:1;stroke:none;stroke-width:1.95371711;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

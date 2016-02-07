@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="25.191425mm"
+   height="33.481426mm"
+   viewBox="0 0 89.260956 118.63497"
+   id="svg11504"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Apple.svg">
+  <defs
+     id="defs11506" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="62.972678"
+     inkscape:cy="69.067224"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata11509">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-205.12973,-516.97054)">
+    <g
+       id="g12080"
+       inkscape:export-filename="F:\ProzProg\Hängebauchschwein-Simulator\image\apple.png"
+       inkscape:export-xdpi="24.276148"
+       inkscape:export-ydpi="24.276148">
+      <rect
+         transform="matrix(0.92657997,0.37609781,-0.37609781,0.92657997,0,0)"
+         ry="1.99778"
+         y="381.84995"
+         x="436.84308"
+         height="54.642857"
+         width="14.285714"
+         id="rect12065"
+         style="opacity:1;fill:#442410;fill-opacity:1;stroke:#000000;stroke-width:3.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+      <circle
+         r="42.880478"
+         cy="590.97504"
+         cx="249.76021"
+         id="path12052"
+         style="opacity:1;fill:#e61b21;fill-opacity:1;stroke:#000000;stroke-width:3.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+      <ellipse
+         transform="matrix(0.58281793,-0.81260277,0.81260277,0.58281793,0,0)"
+         ry="12.678572"
+         rx="6.4285712"
+         cy="547.89801"
+         cx="-306.77649"
+         id="path12078"
+         style="opacity:1;fill:#ef7174;fill-opacity:1;stroke:none;stroke-width:3.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.31886005;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
