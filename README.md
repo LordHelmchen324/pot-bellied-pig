@@ -1,4 +1,4 @@
-# Haengebauchschwein-Simulator
+# Hängebauchschwein-Simulator
 
 Dies ist der unerwartet reale Hängebauchschwein-Simulator für alle diejenigen, die schon immer mal einen Hängebauch haben wollten. Viel Spaß beim ausprobieren.
 
