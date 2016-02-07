@@ -1,0 +1,1 @@
+int winScreenUpdate(Information *info);

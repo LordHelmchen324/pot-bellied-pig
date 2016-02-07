@@ -1,0 +1,1 @@
+int deathScreenUpdate(Information *info);

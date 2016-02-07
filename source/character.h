@@ -1,0 +1,10 @@
+void characterMoveLeft(Character *character);
+void characterMoveRight(Character *character);
+void characterStopLeft(Character *character);
+void characterStopRight(Character *character);
+bool checkCollisionLeft(Character *character, World *world, Information *info);
+bool checkCollisionRight(Character *character, World *world, Information *info);
+void characterJump(Character *character, Information *info);
+void horizontalMovement(Character *character, Information *info);
+void verticalMovement(Character *character, Information *info);
+void characterUpdates(Character *character, Information *info);

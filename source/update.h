@@ -1,0 +1,1 @@
+int Update(Information *info);
