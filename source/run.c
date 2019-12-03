@@ -1,13 +1,13 @@
-#include <stdio.h>
+#include <SDL2/SDL.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <SDL2/SDL.h>
+#include <stdio.h>
 
 #include "containers.h"
-#include "utilities.h"
+#include "graphics/graphic.h"
 #include "init.h"
 #include "update.h"
-#include "graphics/graphic.h"
+#include "utilities.h"
 
 #define QUIT        0
 #define STARTSCREEN 1
@@ -17,27 +17,15 @@
 #define DEATHSCREEN 5
 #define WINSCREEN   6
 
-
-
-void run(SDL_Window *window, SDL_Renderer *renderer){
-
-    //quit variable -> turns to true when game is being quit
+void run(SDL_Window *window, SDL_Renderer *renderer) {
     bool quit = false;
 
-    //holds the SDL runtime always at the beginning of the main loop
     uint32_t lastTick = 0;
     uint32_t currentTick = 0;
 
-
-
-    //initialize the my information
     Information *info = malloc(sizeof(Information));
     initInfo(info, window, renderer);
-
-
-
-
-    //this is the game's main loop -> runs as long as quit doesn't become true
+    
     while(quit == false){
 
         //----------------------------------------------------------------------------------------------
