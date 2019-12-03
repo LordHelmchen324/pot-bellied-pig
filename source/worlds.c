@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
-#include "../source/containers.h"
-#include "../source/utilities.h"
-#include "../source/init.h"
-#include "../source/graphics/graphic.h"
-#include "../source/record.h"
+#include "containers.h"
+#include "utilities.h"
+#include "init.h"
+#include "graphic.h"
+#include "record.h"
 
 
 

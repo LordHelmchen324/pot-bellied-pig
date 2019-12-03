@@ -2,7 +2,7 @@
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
 
-#include "source/run.h"
+#include "run.h"
 
 #define WINDOW_WIDTH 1040
 #define WINDOW_HEIGHT 650

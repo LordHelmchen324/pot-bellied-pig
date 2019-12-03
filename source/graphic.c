@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2_ttf/SDL_ttf.h>
 
-#include "../containers.h"
+#include "containers.h"
 
 #define QUIT        0
 #define STARTSCREEN 1

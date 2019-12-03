@@ -8,8 +8,8 @@
 
 #include "containers.h"
 #include "utilities.h"
-#include "graphics/graphic.h"
-#include "../maps/worlds.h"
+#include "graphic.h"
+#include "worlds.h"
 
 #define QUIT        0
 #define STARTSCREEN 1

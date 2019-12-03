@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 #include "containers.h"
-#include "graphics/graphic.h"
+#include "graphic.h"
 #include "init.h"
 #include "update.h"
 #include "utilities.h"
@@ -25,7 +25,7 @@ void run(SDL_Window *window, SDL_Renderer *renderer) {
 
     Information *info = malloc(sizeof(Information));
     initInfo(info, window, renderer);
-    
+
     while(quit == false){
 
         //----------------------------------------------------------------------------------------------
