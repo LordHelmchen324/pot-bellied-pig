@@ -1,5 +1,5 @@
 #include <stdbool.h>
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include "containers.h"
 
@@ -11,108 +11,108 @@
 
 
 void freeCharacter(Character *character, bool deleteTexture, bool deleteFollowing){
-    
-    
+
+
     free(character -> rect);
     character -> rect = NULL;
-    
+
     free(character -> weakSpot);
     character -> weakSpot = NULL;
-    
-    
-    
+
+
+
     if(deleteTexture == true)
         SDL_DestroyTexture(character -> sprite);
     else
         character -> sprite = NULL;
-    
+
     if(deleteFollowing == true && character -> next != NULL)
         freeCharacter(character -> next, deleteTexture, DELETE_FOLLOWING);
-    
-    
-    
+
+
+
     free(character);
     character = NULL;
-    
-    
-    
+
+
+
     return;
 }
 
 
 
 void freePlayer(Information *info){
-    
-    
+
+
     freeCharacter(info -> player, DELETE_TEXTURE, DELETE_ONLY_THIS);
     info -> player = NULL;
-    
-    
-    
+
+
+
     return;
 }
 
 
 
 void freeChunks(Chunk *chunk){
-    
-    
+
+
     if(chunk -> next != NULL)
         freeChunks(chunk -> next);
-    
+
     SDL_DestroyTexture(chunk -> sprite);
-    
+
     free(chunk -> worldPosition);
     chunk -> worldPosition = NULL;
-    
-    
-    
+
+
+
     free(chunk);
     chunk = NULL;
-    
-    
-    
+
+
+
     return;
 }
 
 
 
 void freeFood(Food *food, bool deleteTexture, bool deleteFollowing){
-    
-    
+
+
     if(deleteFollowing == true && food -> next != NULL)
         freeFood(food -> next, deleteTexture, DELETE_FOLLOWING);
-    
+
     free(food -> rect);
     food -> rect = NULL;
-    
+
     SDL_DestroyTexture(food -> sprite);
-    
-    
-    
+
+
+
     free(food);
     food = NULL;
-    
-    
-    
+
+
+
     return;
 }
 
 
 
 void freeWorld(World *world){
-    
-    
+
+
     freeChunks(world -> chunks);
     world -> chunks = NULL;
-    
+
     SDL_DestroyTexture(world -> landscape);
-    
+
     freeCharacter(world -> enemies, DELETE_TEXTURE, DELETE_FOLLOWING);
-    
+
     freeFood(world -> food, DELETE_TEXTURE, DELETE_FOLLOWING);
-    
-    
-    
+
+
+
     return;
 }
