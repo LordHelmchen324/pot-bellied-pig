@@ -1,4 +1,3 @@
-void initFood(Food *food, int newPosX, int newPosY, int newWeight, SDL_Renderer *renderer);
 void initCharacter(Character *character, SDL_Rect newRect, SDL_Texture *newSprite, int newSpeed, int newJumpStrength, int newWeight, int newHealth, bool newAgressive);
 void initPlayer(Information *info);
 void spawnPlayer(Character *player, int x, int y);

@@ -77,26 +77,7 @@ void freeChunks(Chunk *chunk){
 
 
 
-void freeFood(Food *food, bool deleteTexture, bool deleteFollowing){
 
-
-    if(deleteFollowing == true && food -> next != NULL)
-        freeFood(food -> next, deleteTexture, DELETE_FOLLOWING);
-
-    free(food -> rect);
-    food -> rect = NULL;
-
-    SDL_DestroyTexture(food -> sprite);
-
-
-
-    free(food);
-    food = NULL;
-
-
-
-    return;
-}
 
 
 
@@ -110,7 +91,6 @@ void freeWorld(World *world){
 
     freeCharacter(world -> enemies, DELETE_TEXTURE, DELETE_FOLLOWING);
 
-    freeFood(world -> food, DELETE_TEXTURE, DELETE_FOLLOWING);
 
 
 

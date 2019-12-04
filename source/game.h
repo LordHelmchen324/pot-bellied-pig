@@ -1,4 +1,3 @@
-int handleGameEvents(Information *info);
-void handleAI(Information *info);
-void handleUpdates(Information *info);
-int updateGame(Information *info);
+#pragma once
+
+void gameLoop(SDL_Window *window, SDL_Renderer* renderer, Information *info);

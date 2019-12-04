@@ -77,20 +77,6 @@ typedef struct CharacterStruct Character;
 
 
 
-//a struct containing a piece of food that can be collected by the player to increase his weight (score)
-struct FoodStruct{
-
-    SDL_Rect *rect;
-    SDL_Texture *sprite;
-
-    int weight;
-
-
-    struct FoodStruct *next;
-
-};
-
-typedef struct FoodStruct Food;
 
 
 
@@ -124,7 +110,6 @@ struct WorldStruct{
 
     //stuff that is in the world
     Character *enemies;
-    Food *food;
 
 
     char *recordPath;
@@ -139,61 +124,6 @@ struct WorldStruct{
 };
 
 typedef struct WorldStruct World;
-
-
-
-//a struct holding a button in a menu or so
-struct ButtonStruct{
-
-    SDL_Rect *rect;
-
-    SDL_Texture *texture_default;
-    SDL_Texture *texture_hover;
-    SDL_Texture *texture_pressed;
-
-
-    bool hover;
-    bool pressed;
-    bool released;
-
-};
-
-typedef struct ButtonStruct Button;
-
-
-
-//a struct containing the main menu
-struct MainMenuStruct{
-
-    SDL_Texture *background;
-    SDL_Texture *header;
-
-
-    Button *selectedButton;
-
-    Button *playButton;
-    Button *quitButton;
-
-};
-
-typedef struct MainMenuStruct MainMenu;
-
-
-
-struct LevelMenuStruct{
-
-    SDL_Texture *background;
-    SDL_Texture *header;
-
-
-    Button *selectedButton;
-
-    Button *backButton;
-    Button *demoLevel;
-
-};
-
-typedef struct LevelMenuStruct LevelMenu;
 
 
 
@@ -212,22 +142,8 @@ struct InformationStruct{
     SDL_Texture *scrollBase;
     SDL_Rect *viewPort;
 
-
-    //menu and screen elements
-    MainMenu *mainMenu;
-    LevelMenu *levelMenu;
-    SDL_Texture *startScreen;
-    SDL_Texture *deathScreen;
-    SDL_Texture *winScreen;
-
-    SDL_Texture *weightIcon;
-
-    TTF_Font *font;
-
-
     //other utilities
     double timeStep;
-    int GameState;
     uint32_t timer;
 
 };

@@ -2,7 +2,9 @@
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
 
-#include "run.h"
+#include "containers.h"
+#include "game.h"
+#include "init.h"
 
 #define WINDOW_WIDTH 1040
 #define WINDOW_HEIGHT 650
@@ -30,7 +32,14 @@ int main(int argc, char *args[]) {
 		if(window == NULL || renderer == NULL) {
             SDL_Quit();
         } else {
-			run(window, renderer);
+			Information *info = malloc(sizeof(Information));
+		    initInfo(info, window, renderer);
+			initWorld(info, "demoLevel");
+			printf("in main before gameLoop %p\n", info->world);
+
+			gameLoop(window, renderer, info);
+
+			free(info);
         }
 
 	}

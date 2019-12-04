@@ -5,8 +5,6 @@
 #include "utilities.h"
 #include "init.h"
 #include "graphic.h"
-#include "record.h"
-
 
 
 void chunks_TestLevel(World *world, SDL_Renderer *renderer){
@@ -210,51 +208,6 @@ void chunks_TestLevel(World *world, SDL_Renderer *renderer){
 
 
 
-void enemies_TestLevel(Information *info){
-
-
-    SDL_Rect enemyRect = {0, 0, 30, 50};
-    SDL_Surface *enemySurface = SDL_CreateRGBSurface(0, 30, 50, 32, 0, 0, 0, 0);
-    SDL_FillRect(enemySurface, NULL, SDL_MapRGB(enemySurface -> format, 180, 0, 0));
-    SDL_Texture *enemyTexture = SDL_CreateTextureFromSurface(info -> renderer, enemySurface);
-    SDL_FreeSurface(enemySurface);
-
-
-    //initialize enemies
-    enemyRect.x = 400;
-    enemyRect.y = 400;
-    info -> world -> enemies = malloc(sizeof(Character));
-    initCharacter(info -> world -> enemies, enemyRect, enemyTexture, 300.0, 600.0, 12, 1, false);
-
-    enemyRect.x = 333;
-    enemyRect.y = 100;
-    info -> world -> enemies -> next = malloc(sizeof(Character));
-    initCharacter(info -> world -> enemies -> next, enemyRect, enemyTexture, 300.0, 1300.0, 12, 1, false);
-
-
-
-
-    return;
-}
-
-
-
-void food_TestLevel(Information *info){
-
-
-    //initialize food
-    info -> world -> food = malloc(sizeof(Food));
-    initFood(info -> world -> food, 730, 265, 8, info -> renderer);
-
-    info -> world -> food -> next = malloc(sizeof(Food));
-    initFood(info -> world -> food -> next, 922, 200 - 15 - 35, 4, info -> renderer);
-
-
-
-
-    return;
-}
-
 
 
 void load_TestLevel(Information *info){
@@ -304,13 +257,6 @@ void load_TestLevel(Information *info){
 
     //---------------------------------------------------------------------------------------------
 
-    //load the enemies
-    enemies_TestLevel(info);
-
-    //---------------------------------------------------------------------------------------------
-
-    //load the food
-    food_TestLevel(info);
 
     //---------------------------------------------------------------------------------------------
 
@@ -913,171 +859,11 @@ void chunks_DemoLevel(World *world, SDL_Renderer *renderer){
     initChunk(chunk -> next, box, 3037, 537, 60, 60, renderer);
 
 
-
-
-    return;
-}
-
-
-
-void enemies_DemoLevel(Information *info){
-
-    info -> world -> enemies = NULL;
-
-
-    SDL_Rect enemyRect = {0, 0, 59, 90};
-    SDL_Surface *enemySurface = SDL_CreateRGBSurface(0, 30, 50, 32, 0, 0, 0, 0);
-    SDL_FillRect(enemySurface, NULL, SDL_MapRGB(enemySurface -> format, 180, 0, 0));
-    SDL_Texture *enemyTexture = SDL_CreateTextureFromSurface(info -> renderer, enemySurface);
-    SDL_FreeSurface(enemySurface);
-
-
-    //initialize enemies
-    enemyRect.x = 1400;
-    enemyRect.y = 330;
-    info -> world -> enemies = malloc(sizeof(Character));
-    initCharacter(info -> world -> enemies, enemyRect, enemyTexture, 150.0, 1300.0, 12, 1, false);
-
-    enemyRect.x = 3330;
-    enemyRect.y = 270;
-    info -> world -> enemies -> next = malloc(sizeof(Character));
-    initCharacter(info -> world -> enemies -> next, enemyRect, enemyTexture, 300.0, 1300.0, 12, 1, true);
-
-
-
-    //give all enemies the chicken texture / animation
-    Character *thisEnemy = info -> world -> enemies;
-
-    while(thisEnemy != NULL){
-
-        //load idle
-        thisEnemy -> idle = malloc(sizeof(Frame));
-        thisEnemy -> idle -> frameTexture = LoadImage(info -> renderer, "image/chicken_idle.png");
-        thisEnemy -> idle -> time = 0;
-        thisEnemy -> idle -> startTime = 0;
-        thisEnemy -> idle -> next = NULL;
-
-
-        //load runningLeft
-        thisEnemy -> runningLeft = malloc(sizeof(Frame));
-        thisEnemy -> runningLeft -> frameTexture = LoadImage(info -> renderer, "image/chicken_runLeft_1.png");
-        thisEnemy -> runningLeft -> time = 250;
-        thisEnemy -> runningLeft -> startTime = 0;
-
-        thisEnemy -> runningLeft -> next = malloc(sizeof(Frame));
-        thisEnemy -> runningLeft -> next -> frameTexture = LoadImage(info -> renderer, "image/chicken_runLeft_2.png");
-        thisEnemy -> runningLeft -> next -> time = 250;
-        thisEnemy -> runningLeft -> next -> startTime = 0;
-        thisEnemy -> runningLeft -> next -> next = thisEnemy -> runningLeft;
-
-
-        //load runningRight
-        thisEnemy -> runningRight = malloc(sizeof(Frame));
-        thisEnemy -> runningRight -> frameTexture = LoadImage(info -> renderer, "image/chicken_runRight_1.png");
-        thisEnemy -> runningRight -> time = 250;
-        thisEnemy -> runningRight -> startTime = 0;
-
-        thisEnemy -> runningRight -> next = malloc(sizeof(Frame));
-        thisEnemy -> runningRight -> next -> frameTexture = LoadImage(info -> renderer, "image/chicken_runRight_2.png");
-        thisEnemy -> runningRight -> next -> time = 250;
-        thisEnemy -> runningRight -> next -> startTime = 0;
-        thisEnemy -> runningRight -> next -> next = thisEnemy -> runningRight;
-
-
-
-        thisEnemy = thisEnemy -> next;
-
-    }
-
-
-
+    printf("Chunks loaded\n");
 
     return;
 }
 
-
-
-void food_DemoLevel(Information *info){
-
-
-
-    //initialize landscape -> chunks
-    Food *food = NULL;
-
-    info -> world -> food = malloc(sizeof(Food));
-    initFood(info -> world -> food, 347, 432, 1, info -> renderer);
-
-    food = info -> world -> food;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 575, 234, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 1122, 378, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 2030, 318, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 2501, 393, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 2915, 489, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 4238, 425, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 4251, 425, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 5039, 528, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 5049, 528, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 5060, 528, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 5621, 325, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 5689, 535, 1, info -> renderer);
-
-    food = food -> next;
-
-    food -> next = malloc(sizeof(Food));
-    initFood(food -> next, 6787, 117, 1, info -> renderer);
-
-
-
-
-
-    return;
-}
 
 
 
@@ -1088,10 +874,7 @@ void load_DemoLevel(Information *info){
 
     //---------------------------------------------------------------------------------------------
 
-    //load the level record
-    world -> recordPath = "maps/record_DemoLevel.rcd";
 
-    loadRecord(world);
 
     //---------------------------------------------------------------------------------------------
 
@@ -1129,6 +912,7 @@ void load_DemoLevel(Information *info){
 
         chunk = chunk -> next;
 
+
     }
 
 
@@ -1136,13 +920,11 @@ void load_DemoLevel(Information *info){
 
     //---------------------------------------------------------------------------------------------
 
-    //load the enemies
-    enemies_DemoLevel(info);
+
 
     //---------------------------------------------------------------------------------------------
 
-    //load the food
-    food_DemoLevel(info);
+
 
     //---------------------------------------------------------------------------------------------
 

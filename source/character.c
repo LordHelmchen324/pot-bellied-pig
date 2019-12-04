@@ -70,13 +70,9 @@ void characterStopRight(Character *character){
 
 //check if the character collides with the world on its right side and stop the character, if that's the case
 bool checkCollisionLeft(Character *character, World *world, Information *info){
-
-
     bool collision = false;
-
     Chunk *chunk = world -> chunks;
     int xNext = (int)((double)CHARACTER_X + (character -> currentSpeed));
-
 
 
     while(chunk != NULL){
@@ -117,7 +113,6 @@ bool checkCollisionLeft(Character *character, World *world, Information *info){
 
 //check if the character collides with the world on its right side and stop the character, if that's the case
 bool checkCollisionRight(Character *character, World *world, Information *info){
-
 
     bool collision = false;
 

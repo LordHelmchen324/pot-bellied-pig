@@ -5,42 +5,6 @@
 
 #include "containers.h"
 
-#define QUIT        0
-#define STARTSCREEN 1
-#define MAINMENU    2
-#define LEVELMENU   3
-#define INGAME      4
-#define DEATHSCREEN 5
-#define WINSCREEN   6
-
-
-
-SDL_Texture *drawText(TTF_Font *font, char *string, SDL_Color colour, SDL_Renderer *renderer){
-
-
-    SDL_Surface *temp = TTF_RenderUTF8_Blended(font, string, colour);
-    SDL_Texture *textTexture = SDL_CreateTextureFromSurface(renderer, temp);
-
-
-    SDL_FreeSurface(temp);
-
-
-    return textTexture;
-}
-
-
-
-//draws food onto a renderer
-void drawFood(Food *food, SDL_Renderer *renderer){
-
-
-    SDL_RenderCopy(renderer, food -> sprite, NULL, food -> rect);
-
-
-
-    return;
-}
-
 
 
 //draws a character onto a renderer
@@ -170,68 +134,6 @@ void drawScrollBase(SDL_Texture *scrollBase, Information *info, SDL_Renderer *re
     return;
 }
 
-
-
-void drawButton(Button *button, SDL_Renderer *renderer){
-
-
-    if(button -> pressed){
-
-        SDL_RenderCopy(renderer, button -> texture_pressed, NULL, button -> rect);
-
-    } else if(button -> hover){
-
-        SDL_RenderCopy(renderer, button -> texture_hover, NULL, button -> rect);
-
-    } else {
-
-        SDL_RenderCopy(renderer, button -> texture_default, NULL, button -> rect);
-
-    }
-
-
-
-    return;
-}
-
-
-
-void graphicsMainMenu(Information *info){
-
-
-    SDL_RenderCopy(info -> renderer, info -> mainMenu -> background, NULL, NULL);
-
-    SDL_Rect headerRect = {119, 30, 801, 50};
-    SDL_RenderCopy(info -> renderer, info -> mainMenu -> header, NULL, &headerRect);
-
-    drawButton(info -> mainMenu -> playButton, info -> renderer);
-    drawButton(info -> mainMenu -> quitButton, info -> renderer);
-
-
-
-    return;
-}
-
-
-
-void graphicsLevelMenu(Information *info){
-
-
-    SDL_RenderCopy(info -> renderer, info -> levelMenu -> background, NULL, NULL);
-
-    SDL_Rect headerRect = {119, 30, 801, 50};
-    SDL_RenderCopy(info -> renderer, info -> levelMenu -> header, NULL, &headerRect);
-
-    drawButton(info -> levelMenu -> backButton, info -> renderer);
-    drawButton(info -> levelMenu -> demoLevel, info -> renderer);
-
-
-
-    return;
-}
-
-
-
 //handles all the in game drawing for GameState = INGAME
 void graphicsGame(Information *info){
 
@@ -252,34 +154,6 @@ void graphicsGame(Information *info){
 
 
 
-    //draw the food
-    Food *thisFood = info -> world -> food;
-
-    while(thisFood != NULL){
-
-        drawFood(thisFood, renderer);
-
-        thisFood = thisFood -> next;
-
-    }
-
-
-
-    //draw the enemies
-    Character *thisEnemy = info -> world -> enemies;
-
-    while(thisEnemy != NULL){
-
-        updateAnimation(thisEnemy, info);
-
-        drawCharacter(thisEnemy, renderer);
-
-        thisEnemy = thisEnemy -> next;
-
-    }
-
-
-
     //draw the player
     updateAnimation(info -> player, info);
 
@@ -297,109 +171,14 @@ void graphicsGame(Information *info){
     drawScrollBase(scrollBase, info, renderer);
 
 
-    //draw weightIcon to the screen
-    SDL_Rect weightIconRect = {925, 15, 102, 100};
-    SDL_RenderCopy(renderer, info -> weightIcon, NULL, &weightIconRect);
 
-    //write to the weight icon
-    SDL_Color weightFontColour = {120, 120, 122};
-    SDL_Rect weightTextPosition = {950, 40, 52, 52};
-    char weightString[3];
-    sprintf(weightString, "%u", info -> player -> weight);
-    SDL_RenderCopy(renderer, drawText(info -> font, weightString, weightFontColour, renderer), NULL, &weightTextPosition);
-
-
-
-    return;
 }
-
-
-
-void graphicsStart(Information *info){
-
-
-    SDL_RenderCopy(info -> renderer, info -> startScreen, NULL, NULL);
-
-
-
-    return;
-}
-
-
-
-void graphicsDeath(Information *info){
-
-
-    SDL_RenderCopy(info -> renderer, info -> deathScreen, NULL, NULL);
-
-
-
-    return;
-}
-
-
-
-void graphicsWin(Information *info){
-
-
-    SDL_RenderCopy(info -> renderer, info -> winScreen, NULL, NULL);
-
-
-
-    return;
-}
-
-
 
 //general handler for the all graphic updates -> redirects to specific graphic updates for ingame, menu etc.
 void GraphicUpdate(Information *info){
-
     SDL_Renderer *renderer = info -> renderer;
 
-
-
-    //Clear the renderer before beginngin to draw
     SDL_RenderClear(renderer);
-
-
-    //check the GameState and execute the corresponding updates
-    switch(info -> GameState){
-
-        case STARTSCREEN:
-            graphicsStart(info);
-            break;
-
-        case MAINMENU:
-            graphicsMainMenu(info);
-            break;
-
-        case LEVELMENU:
-            graphicsLevelMenu(info);
-            break;
-
-        case INGAME:
-            graphicsGame(info);
-            break;
-
-        case DEATHSCREEN:
-            graphicsDeath(info);
-            break;
-
-        case WINSCREEN:
-            graphicsWin(info);
-            break;
-
-        default:
-            break;
-
-    }
-
-
-    //present the updates of the renderer
+    graphicsGame(info);
     SDL_RenderPresent(info -> renderer);
-
-
-
-    return;
-
 }

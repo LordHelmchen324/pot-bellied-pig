@@ -11,42 +11,9 @@
 #include "graphic.h"
 #include "worlds.h"
 
-#define QUIT        0
-#define STARTSCREEN 1
-#define MAINMENU    2
-#define LEVELMENU   3
-#define INGAME      4
-#define DEATHSCREEN 5
-#define WINSCREEN   6
-
 #define PLAYER_WEIGHT  60
 #define PLAYER_HEALTH  1
 
-
-
-void initFood(Food *food, int newPosX, int newPosY, int newWeight, SDL_Renderer *renderer){
-
-
-    food -> sprite = LoadImage(renderer, "image/food_apple.png");
-
-
-
-    food -> rect = malloc(sizeof(SDL_Rect));
-    food -> rect -> x = newPosX;
-    food -> rect -> y = newPosY;
-    food -> rect -> w = 24;
-    food -> rect -> h = 32;
-
-
-    food -> weight = newWeight;
-
-
-    food -> next = NULL;
-
-
-
-    return;
-}
 
 
 
@@ -212,7 +179,7 @@ void initChunk(Chunk *chunk, SDL_Texture *newSprite, int newPosX, int newPosY, i
 
 void initWorld(Information *info, char *worldName){
 
-
+    printf("initWorld\n");
     //---------------------------------------------------------------------------------------------
     //definitions of the names of all the levels in the game
     //char *testLevel = "testLevel";
@@ -236,121 +203,12 @@ void initWorld(Information *info, char *worldName){
     info -> scrollBase = SDL_CreateTexture(info -> renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, info -> world -> width, info -> world -> height);
 
 
-
-
-    return;
-}
-
-
-
-void initButton(Button *button, char *defaultPath, char *hoverPath, char *pressedPath, int positionX, int positionY, int width, int height, bool startsHovered, SDL_Renderer *renderer){
-
-
-    button -> rect = malloc(sizeof(SDL_Rect));
-    button -> rect -> x = positionX;
-    button -> rect -> y = positionY;
-    button -> rect -> w = width;
-    button -> rect -> h = height;
-
-
-    button -> texture_default = NULL;
-    button -> texture_default = LoadImage(renderer, defaultPath);
-
-    button -> texture_hover = NULL;
-    button -> texture_hover = LoadImage(renderer, hoverPath);
-
-    button -> texture_pressed = NULL;
-    button -> texture_pressed = LoadImage(renderer, pressedPath);
-
-
-
-    button -> hover = startsHovered;
-    button -> pressed = false;
-    button -> released = false;
-
-
+    printf("after initWorld %p\n", info->world);
 
     return;
 }
 
 
-
-void initMainMenu(Information *info){
-
-
-    //get memory for the mainMenu and make a direct pointer
-    info -> mainMenu = malloc(sizeof(MainMenu));
-    MainMenu *mainMenu = info -> mainMenu;
-
-
-
-    //load the mainMenu's textures
-    mainMenu -> background = LoadImage(info -> renderer, "image/bg_mainMenu.png");
-    mainMenu -> header = LoadImage(info -> renderer, "image/mainMenu_header.png");
-
-
-
-    //load the mainMenu's buttons
-    mainMenu -> playButton = malloc(sizeof(Button));
-    initButton(mainMenu -> playButton, "image/mainMenu_playButtonDefault.png", "image/mainMenu_playButtonHover.png", "image/mainMenu_playButtonPressed.png", 407, 212, 225, 225, true, info -> renderer);
-
-    mainMenu -> quitButton = malloc(sizeof(Button));
-    initButton(mainMenu -> quitButton, "image/mainMenu_quitButtonDefault.png", "image/mainMenu_quitButtonHover.png", "image/mainMenu_quitButtonPressed.png", 787, 530, 233, 100, false, info -> renderer);
-
-
-    mainMenu -> selectedButton = mainMenu -> playButton;
-
-
-
-
-    return;
-}
-
-
-
-void initLevelMenu(Information *info){
-
-
-    //get memory for the levelMenu and make a direct pointer
-    info -> levelMenu = malloc(sizeof(MainMenu));
-    LevelMenu *levelMenu = info -> levelMenu;
-
-
-
-    //load the mainMenu's textures
-    levelMenu -> background = LoadImage(info -> renderer, "image/bg_mainMenu.png");
-    levelMenu -> header = LoadImage(info -> renderer, "image/mainMenu_header.png");
-
-
-
-    //load the mainMenu's buttons
-    levelMenu -> backButton = malloc(sizeof(Button));
-    initButton(levelMenu -> backButton, "image/levelMenu_backButtonDefault.png", "image/levelMenu_backButtonHover.png", "image/levelMenu_backButtonPressed.png", 20, 530, 100, 100, false, info -> renderer);
-
-    levelMenu -> demoLevel = malloc(sizeof(Button));
-    initButton(levelMenu -> demoLevel, "image/levelMenu_demoLevelDefault.png", "image/levelMenu_demoLevelHover.png", "image/levelMenu_demoLevelPressed.png", 394, 175, 252, 300, true, info -> renderer);
-
-
-    levelMenu -> selectedButton = levelMenu -> demoLevel;
-
-
-
-    return;
-}
-
-
-
-void initMenus(Information *info){
-
-
-    initMainMenu(info);
-
-    initLevelMenu(info);
-
-
-
-    return;
-}
 
 
 
@@ -368,23 +226,7 @@ void initGraphics(Information *info, SDL_Window *newWindow, SDL_Renderer *newRen
     info -> scrollBase = NULL;
 
 
-    //load screens
-    info -> startScreen = LoadImage(info -> renderer, "image/sdlScreen.png");
-    info -> winScreen = LoadImage(info -> renderer, "image/winScreen.png");
-    info -> deathScreen = LoadImage(info -> renderer, "image/deathScreen.png");
 
-
-    //load the weight icon
-    info -> weightIcon = LoadImage(info -> renderer, "image/weightIcon.png");
-
-
-    //load the font
-    info -> font = TTF_OpenFont("font.ttf", 104);
-
-
-
-
-    return;
 }
 
 
@@ -397,7 +239,6 @@ void initInfo(Information *info, SDL_Window *window, SDL_Renderer *renderer){
 
 
     info -> timeStep = 0.0;
-    info -> GameState = STARTSCREEN;
 
 
     //---------------------------------------------------------------------------------------------
@@ -410,7 +251,6 @@ void initInfo(Information *info, SDL_Window *window, SDL_Renderer *renderer){
 
     //---------------------------------------------------------------------------------------------
 
-    initMenus(info);
 
     //---------------------------------------------------------------------------------------------
 

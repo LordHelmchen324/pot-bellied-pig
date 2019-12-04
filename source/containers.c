@@ -63,21 +63,6 @@ typedef struct CharacterStruct Character;
 
 
 
-//a struct containing a piece of food that can be collected by the player to increase his weight (score)
-struct FoodStruct{
-
-    SDL_Rect *rect;
-    SDL_Texture *sprite;
-
-    int weight;
-
-
-    struct FoodStruct *next;
-
-};
-
-typedef struct FoodStruct Food;
-
 
 
 //a struct containing RECTANGULAR chunks of the landscape of a level / world
@@ -107,7 +92,6 @@ struct WorldStruct{
 
     //stuff that is in the world
     Character *enemies;
-    Food *food;
 
 
     //image -> playerLayer

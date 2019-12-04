@@ -1,1 +1,0 @@
-int startScreenUpdate(Information *info);
