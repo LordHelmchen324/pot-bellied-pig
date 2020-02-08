@@ -1,20 +1,32 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 
-#include "containers.h"
-#include "graphic.h"
-#include "ingame.h"
+#include "gameobject.h"
+
+#include "game.h"
 
 #define IS_FPS_LIMITED 1
 #define TARGET_FPS 60
 
-int update(double dt, Information *info) {
-    info->timeStep = dt / 1000;
-    return updateGame(info);
+GameState makeGameState(SDL_Window *window, SDL_Renderer *renderer) {
+    GameState state;
+    state.window = window;
+    state.renderer = renderer;
+    state.camera.x = 0; state.camera.y = 0; 
+    SDL_GetWindowSize(window, &state.camera.w, &state.camera.h);
+    for (int i = 0; i < N_GAMEOBJECTS; i++) state.objects[i] = nullObject();
+    return state;
 }
 
-void draw(Information *info) {
-    GraphicUpdate(info);
+void runGame(SDL_Window *window, SDL_Renderer *renderer) {
+    GameState state = makeGameState(window, renderer);
+
+    int quit = 0; double dt = 0;
+    while (!quit) {
+        dt = timing();
+        quit = updateGameState(&state, dt);
+        drawGameState(&state);
+    }
 }
 
 double timing() {
@@ -31,11 +43,17 @@ double timing() {
     return dt;
 }
 
-void gameLoop(SDL_Window *window, SDL_Renderer* renderer, Information *info) {
-    int quit = 0; double dt = 0;
-    while (!quit) {
-        dt = timing();
-        quit = update(dt, info);
-        draw(info);
+int updateGameState(GameState *state, double dt) {
+    for (int i = 0; i < N_GAMEOBJECTS; i++) {
+        GameObject o = state->objects[i];
+        o.update(o.self, state, dt);
+    }
+    return 0;
+}
+
+void drawGameState(GameState *state) {
+    for (int i = 0; i < N_GAMEOBJECTS; i++) {
+        GameObject o = state->objects[i];
+        o.draw(o.self, state->renderer);
     }
 }
